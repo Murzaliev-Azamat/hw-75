@@ -11,13 +11,8 @@ messagesRouter.post('/encode', async (req, res) => {
     decodedMessage: req.body.decodedMessage,
   };
 
-  try {
-    const cipherMessage = Vigenere.Cipher(message.password).crypt(message.decodedMessage);
-
-    res.send({encoded: cipherMessage});
-  } catch (e) {
-    // next(e);
-  }
+  const cipherMessage = Vigenere.Cipher(message.password).crypt(message.decodedMessage);
+  res.send({encoded: cipherMessage});
 });
 
 messagesRouter.post('/decode', async (req, res) => {
@@ -26,13 +21,8 @@ messagesRouter.post('/decode', async (req, res) => {
     encodedMessage: req.body.encodedMessage,
   };
 
-  try {
-    const decipherMessage = Vigenere.Decipher(message.password).crypt(message.encodedMessage);
-
-    res.send({decoded: decipherMessage});
-  } catch (e) {
-    // next(e);
-  }
+  const decipherMessage = Vigenere.Decipher(message.password).crypt(message.encodedMessage);
+  res.send({decoded: decipherMessage});
 });
 
 export default messagesRouter;
