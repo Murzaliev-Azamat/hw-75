@@ -6,7 +6,6 @@ export const encodeMessage = createAsyncThunk<EncodedMessageApi, EncodeMessagePa
   'messages/encodeMessage',
   async (message) => {
     const response = await axiosApi.post<EncodedMessageApi>('/encode', message);
-    console.log(response.data)
 
     return response.data;
   }
